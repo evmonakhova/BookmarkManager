@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_categories">
+
+    <fragment
+        android:id="@+id/navigation_categories"
+        android:name="monakhova.bookmark.manager.ui.categories.CategoriesFragment"
+        android:label="@string/title_categories"
+        tools:layout="@layout/fragment_categories" />
+
+    <fragment
+        android:id="@+id/navigation_add_bookmark"
+        android:name="monakhova.bookmark.manager.ui.add.AddBookmarkFragment"
+        android:label="@string/title_add_bookmark"
+        tools:layout="@layout/fragment_add_bookmark" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="monakhova.bookmark.manager.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>
