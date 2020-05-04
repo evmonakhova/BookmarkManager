@@ -1,5 +1,11 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <!--  Offsets  -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="side_padding">16dp</dimen>
+
+    <!--  Text  -->
+    <dimen name="toolbar_title_text_size">18sp</dimen>
+
 </resources>
