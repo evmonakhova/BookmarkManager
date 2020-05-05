@@ -13,11 +13,7 @@ class AddBookmarkFragment : Fragment() {
 
     private lateinit var addBookmarkViewModel: AddBookmarkViewModel
 
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         addBookmarkViewModel = ViewModelProviders.of(this).get(AddBookmarkViewModel::class.java)
         return inflater.inflate(R.layout.fragment_add_bookmark, container, false)
     }
