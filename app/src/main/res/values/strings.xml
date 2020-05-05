@@ -3,4 +3,8 @@
     <string name="title_categories">Categories</string>
     <string name="title_add_bookmark">Add</string>
     <string name="title_settings">Settings</string>
+    <string name="hint_header">Header</string>
+    <string name="hint_description">Description</string>
+    <string name="hint_link">Insert link</string>
+    <string name="category_none">No category</string>
 </resources>

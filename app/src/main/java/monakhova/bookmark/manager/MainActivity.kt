@@ -19,5 +19,6 @@ class MainActivity : AppCompatActivity() {
         )
         toolbar?.setupWithNavController(navController, appBarConfiguration)
         nav_view.setupWithNavController(navController)
+        nav_view.selectedItemId = R.id.navigation_add_bookmark
     }
 }
