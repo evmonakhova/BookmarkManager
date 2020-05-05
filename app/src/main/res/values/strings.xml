@@ -7,4 +7,7 @@
     <string name="hint_description">Description</string>
     <string name="hint_link">Insert link</string>
     <string name="category_none">No category</string>
+    <string name="settings_instant_view">Open links in browser</string>
+    <string name="settings_export">Export bookmarks</string>
+    <string name="settings_rate_app">Rate app</string>
 </resources>

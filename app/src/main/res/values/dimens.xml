@@ -7,6 +7,7 @@
     <dimen name="content_padding">8dp</dimen>
     <dimen name="content_margin">16dp</dimen>
     <dimen name="text_padding">4dp</dimen>
+    <dimen name="settings_padding">16dp</dimen>
 
     <!--  Text  -->
     <dimen name="toolbar_title_text_size">18sp</dimen>
