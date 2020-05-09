@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_add_bookmark"
-        android:name="monakhova.bookmark.manager.ui.add.AddBookmarkFragment"
+        android:name="monakhova.bookmark.manager.ui.bookmark.AddBookmarkFragment"
         android:label="@string/title_add_bookmark"
         tools:layout="@layout/fragment_add_bookmark" />
 

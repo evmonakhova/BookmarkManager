@@ -1,4 +1,4 @@
-package monakhova.bookmark.manager.ui.add
+package monakhova.bookmark.manager.ui.bookmark
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -20,31 +20,6 @@
         tools:text="@string/hint_header"
         tools:visibility="visible"/>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/description_edit"
-        style="@style/EditTextStyle.Description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/content_margin"
-        android:hint="@string/hint_description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header_edit"
-        tools:text="@string/hint_description"
-        tools:visibility="visible"/>
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/link_edit"
-        style="@style/EditTextStyle.Link"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/content_margin"
-        android:hint="@string/hint_link"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/description_edit"
-        tools:text="@string/hint_link"/>
-
     <com.google.android.material.chip.Chip
         android:id="@+id/category_chip"
         style="@style/ChipStyle.Empty"
@@ -53,7 +28,7 @@
         android:layout_marginTop="@dimen/content_margin"
         android:text="@string/category_none"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/link_edit"
+        app:layout_constraintTop_toBottomOf="@id/header_edit"
         tools:visibility="visible"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,20 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import monakhova.bookmark.manager.R
 
 /**
- * Created by monakhova on 27.04.2020.
+ * Created by monakhova on 09.05.2020.
  *
- * Categories list fragment.
+ * View category content: subcategories and bookmarks.
  */
-class CategoriesFragment : Fragment() {
-
-    private lateinit var categoriesViewModel: CategoriesViewModel
-
+class ViewCategoryFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        categoriesViewModel = ViewModelProviders.of(this).get(CategoriesViewModel::class.java)
         return inflater.inflate(R.layout.fragment_categories, container, false)
     }
 }

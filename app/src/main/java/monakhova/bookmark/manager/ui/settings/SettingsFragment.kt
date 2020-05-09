@@ -8,6 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import monakhova.bookmark.manager.R
 
+/**
+ * Created by monakhova on 27.04.2020.
+ *
+ * App settings fragment. Edit links viewing preferences, import and export bookmarks, rate app.
+ */
 class SettingsFragment : Fragment() {
 
     private lateinit var settingsViewModel: SettingsViewModel
