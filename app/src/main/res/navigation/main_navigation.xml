@@ -9,17 +9,110 @@
         android:id="@+id/navigation_categories"
         android:name="monakhova.bookmark.manager.ui.categories.CategoriesFragment"
         android:label="@string/title_categories"
-        tools:layout="@layout/fragment_categories" />
+        tools:layout="@layout/fragment_categories">
+
+        <action
+            android:id="@+id/action_categories_to_view_category"
+            app:destination="@id/navigation_view_category" />
+
+        <action
+            android:id="@+id/action_categories_to_add_category"
+            app:destination="@id/navigation_add_category" />
+
+        <action
+            android:id="@+id/action_categories_to_add_bookmark"
+            app:destination="@id/navigation_add_bookmark" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_add_bookmark"
         android:name="monakhova.bookmark.manager.ui.bookmark.AddBookmarkFragment"
         android:label="@string/title_add_bookmark"
-        tools:layout="@layout/fragment_bookmark" />
+        tools:layout="@layout/fragment_bookmark">
+
+        <action
+            android:id="@+id/action_add_bookmark_to_choose_category"
+            app:destination="@id/navigation_choose_category" />
+
+        <action
+            android:id="@+id/action_add_bookmark_to_view_category"
+            app:destination="@id/navigation_view_category" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_settings"
         android:name="monakhova.bookmark.manager.ui.settings.SettingsFragment"
         android:label="@string/title_settings"
         tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/navigation_view_category"
+        android:name="monakhova.bookmark.manager.ui.categories.ViewCategoryFragment"
+        android:label="@string/title_categories"
+        tools:layout="@layout/fragment_categories">
+
+        <action
+            android:id="@+id/action_view_category_to_add_category"
+            app:destination="@id/navigation_add_category" />
+
+        <action
+            android:id="@+id/action_view_category_to_add_bookmark"
+            app:destination="@id/navigation_add_bookmark" />
+
+        <action
+            android:id="@+id/action_view_category_to_edit_category"
+            app:destination="@id/navigation_edit_category" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_add_category"
+        android:name="monakhova.bookmark.manager.ui.category.AddCategoryFragment"
+        android:label="@string/title_add_category"
+        tools:layout="@layout/fragment_category" >
+
+        <action
+            android:id="@+id/action_add_category_to_choose_category"
+            app:destination="@id/navigation_choose_category" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_edit_category"
+        android:name="monakhova.bookmark.manager.ui.category.EditCategoryFragment"
+        android:label="@string/title_edit_category"
+        tools:layout="@layout/fragment_category">
+
+        <action
+            android:id="@+id/action_edit_category_to_choose_category"
+            app:destination="@id/navigation_choose_category" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_edit_bookmark"
+        android:name="monakhova.bookmark.manager.ui.bookmark.EditBookmarkFragment"
+        android:label="@string/title_edit_bookmark"
+        tools:layout="@layout/fragment_bookmark">
+
+        <action
+            android:id="@+id/action_edit_bookmark_to_choose_category"
+            app:destination="@id/navigation_choose_category" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_choose_category"
+        android:name="monakhova.bookmark.manager.ui.categories.ChooseCategoryFragment"
+        android:label="@string/title_choose_category"
+        tools:layout="@layout/fragment_categories">
+
+        <action
+            android:id="@+id/action_choose_category_to_add_category"
+            app:destination="@id/navigation_add_category" />
+
+    </fragment>
+
 </navigation>

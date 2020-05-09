@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_bookmark.*
 import monakhova.bookmark.manager.R
 
@@ -26,5 +27,8 @@ class AddBookmarkFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         link_edit.requestFocus()
+        category_chip.setOnClickListener {
+            findNavController().navigate(R.id.action_add_bookmark_to_choose_category)
+        }
     }
 }
