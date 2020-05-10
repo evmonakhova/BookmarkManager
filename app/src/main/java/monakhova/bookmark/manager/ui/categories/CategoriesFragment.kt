@@ -27,7 +27,7 @@ class CategoriesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         fab_add.setOnClickListener {
-            findNavController().navigate(R.id.action_categories_to_add_category)
+            findNavController().navigate(R.id.action_categories_to_add_menu)
         }
     }
 }

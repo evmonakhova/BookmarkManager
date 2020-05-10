@@ -1,12 +1,15 @@
 <resources>
     <string name="app_name">BookmarkManager</string>
     <string name="title_categories">Categories</string>
-    <string name="title_add_bookmark">Add</string>
+    <string name="title_add_bookmark">Add bookmark</string>
     <string name="title_settings">Settings</string>
     <string name="title_choose_category">Choose category</string>
     <string name="title_add_category">Add category</string>
     <string name="title_edit_category">Edit category</string>
     <string name="title_edit_bookmark">Edit bookmark</string>
+    <string name="menu_add">Add</string>
+    <string name="menu_add_bookmark">Bookmark</string>
+    <string name="menu_add_category">Category</string>
     <string name="hint_header">Header</string>
     <string name="hint_description">Description</string>
     <string name="hint_link">Insert link</string>

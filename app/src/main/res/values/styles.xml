@@ -88,10 +88,10 @@
         <item name="android:textSize">@dimen/link_text_size</item>
     </style>
 
-    <style name="TextStyle.Settings" parent="TextAppearance.AppCompat">
+    <style name="TextStyle.ListItem" parent="TextAppearance.AppCompat">
         <item name="android:background">?attr/selectableItemBackground</item>
         <item name="android:clickable">true</item>
-        <item name="android:padding">@dimen/settings_padding</item>
+        <item name="android:padding">@dimen/list_item_padding</item>
         <item name="android:textAlignment">textStart</item>
         <item name="android:textColor">@color/secondary_text</item>
     </style>

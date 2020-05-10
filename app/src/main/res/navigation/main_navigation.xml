@@ -16,12 +16,8 @@
             app:destination="@id/navigation_view_category" />
 
         <action
-            android:id="@+id/action_categories_to_add_category"
-            app:destination="@id/navigation_add_category" />
-
-        <action
-            android:id="@+id/action_categories_to_add_bookmark"
-            app:destination="@id/navigation_add_bookmark" />
+            android:id="@+id/action_categories_to_add_menu"
+            app:destination="@id/navigation_add_category_or_bookmark"/>
 
     </fragment>
 
@@ -66,6 +62,21 @@
             app:destination="@id/navigation_edit_category" />
 
     </fragment>
+
+    <dialog android:id="@+id/navigation_add_category_or_bookmark"
+        android:name="monakhova.bookmark.manager.ui.categories.BottomSheetFragment"
+        android:label="@string/menu_add"
+        tools:layout="@layout/bottom_sheet">
+
+        <action
+            android:id="@+id/action_categories_to_add_category"
+            app:destination="@id/navigation_add_category" />
+
+        <action
+            android:id="@+id/action_categories_to_add_bookmark"
+            app:destination="@id/navigation_add_bookmark" />
+
+    </dialog>
 
     <fragment
         android:id="@+id/navigation_add_category"
