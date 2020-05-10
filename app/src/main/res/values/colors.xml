@@ -9,4 +9,5 @@
     <color name="icons">#FFFFFF</color>
     <color name="divider">#DDDDDD</color>
     <color name="ripple">#DDDDDD</color>
+    <color name="background">#FBFBFB</color>
 </resources>

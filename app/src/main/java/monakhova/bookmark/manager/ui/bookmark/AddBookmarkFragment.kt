@@ -1,6 +1,10 @@
 package monakhova.bookmark.manager.ui.bookmark
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.Spannable
+import android.text.TextWatcher
+import android.text.util.Linkify
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,5 +34,16 @@ class AddBookmarkFragment : Fragment() {
         category_chip.setOnClickListener {
             findNavController().navigate(R.id.action_add_bookmark_to_choose_category)
         }
+        link_edit.addTextChangedListener(object : TextWatcher {
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                Linkify.addLinks((s as Spannable), Linkify.WEB_URLS)
+            }
+
+            override fun afterTextChanged(s: Editable) {
+                Linkify.addLinks(s, Linkify.WEB_URLS)
+            }
+
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+        })
     }
 }

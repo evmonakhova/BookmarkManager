@@ -12,8 +12,8 @@
     <!--  Text  -->
     <dimen name="toolbar_title_text_size">18sp</dimen>
     <dimen name="header_edit_size">24sp</dimen>
-    <dimen name="description_edit_size">20sp</dimen>
-    <dimen name="link_edit_size">20sp</dimen>
+    <dimen name="description_edit_size">18sp</dimen>
+    <dimen name="link_edit_size">18sp</dimen>
     <dimen name="header_text_size">18sp</dimen>
     <dimen name="description_text_size">12sp</dimen>
     <dimen name="link_text_size">14sp</dimen>

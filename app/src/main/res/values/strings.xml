@@ -10,6 +10,7 @@
     <string name="hint_header">Header</string>
     <string name="hint_description">Description</string>
     <string name="hint_link">Insert link</string>
+    <string name="fab_add_link">Add link from clipboard</string>
     <string name="category_none">No category</string>
     <string name="settings_instant_view">Open links in browser</string>
     <string name="settings_export">Export bookmarks</string>
