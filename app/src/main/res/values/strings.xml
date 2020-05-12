@@ -10,6 +10,8 @@
     <string name="menu_add">Add</string>
     <string name="menu_add_bookmark">Bookmark</string>
     <string name="menu_add_category">Category</string>
+    <string name="menu_done">Done</string>
+    <string name="menu_edit">Edit</string>
     <string name="hint_header">Header</string>
     <string name="hint_description">Description</string>
     <string name="hint_link">Insert link</string>

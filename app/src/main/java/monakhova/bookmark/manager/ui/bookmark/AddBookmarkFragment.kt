@@ -8,18 +8,18 @@ import android.text.util.Linkify
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_bookmark.*
 import monakhova.bookmark.manager.R
+import monakhova.bookmark.manager.ui.ReadWriteFragment
 
 /**
  * Created by monakhova on 27.04.2020.
  *
  * Add bookmark fragment. Insert link and edit bookmark information.
  */
-class AddBookmarkFragment : Fragment() {
+class AddBookmarkFragment: ReadWriteFragment() {
 
     private lateinit var addBookmarkViewModel: AddBookmarkViewModel
 
@@ -45,5 +45,9 @@ class AddBookmarkFragment : Fragment() {
 
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
         })
+    }
+
+    override fun onDoneActionSelected() {
+        findNavController().navigate(R.id.action_add_bookmark_to_view_category)
     }
 }

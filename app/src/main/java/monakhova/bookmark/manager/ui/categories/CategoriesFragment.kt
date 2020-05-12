@@ -15,7 +15,7 @@ import monakhova.bookmark.manager.R
  *
  * Categories list fragment.
  */
-class CategoriesFragment : Fragment() {
+open class CategoriesFragment : Fragment() {
 
     private lateinit var categoriesViewModel: CategoriesViewModel
 
@@ -27,7 +27,7 @@ class CategoriesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         fab_add.setOnClickListener {
-            findNavController().navigate(R.id.action_categories_to_add_menu)
+            findNavController().navigate(R.id.action_open_bottom_sheet_menu)
         }
     }
 }

@@ -15,10 +15,6 @@
             android:id="@+id/action_categories_to_view_category"
             app:destination="@id/navigation_view_category" />
 
-        <action
-            android:id="@+id/action_categories_to_add_menu"
-            app:destination="@id/navigation_add_category_or_bookmark"/>
-
     </fragment>
 
     <fragment
@@ -45,23 +41,19 @@
 
     <fragment
         android:id="@+id/navigation_view_category"
-        android:name="monakhova.bookmark.manager.ui.categories.ViewCategoryFragment"
+        android:name="monakhova.bookmark.manager.ui.categories.SubcategoryFragment"
         android:label="@string/title_categories"
         tools:layout="@layout/fragment_categories">
-
-        <action
-            android:id="@+id/action_view_category_to_add_category"
-            app:destination="@id/navigation_add_category" />
-
-        <action
-            android:id="@+id/action_view_category_to_add_bookmark"
-            app:destination="@id/navigation_add_bookmark" />
 
         <action
             android:id="@+id/action_view_category_to_edit_category"
             app:destination="@id/navigation_edit_category" />
 
     </fragment>
+
+    <action
+        android:id="@+id/action_open_bottom_sheet_menu"
+        app:destination="@id/navigation_add_category_or_bookmark" />
 
     <dialog android:id="@+id/navigation_add_category_or_bookmark"
         android:name="monakhova.bookmark.manager.ui.categories.BottomSheetFragment"
