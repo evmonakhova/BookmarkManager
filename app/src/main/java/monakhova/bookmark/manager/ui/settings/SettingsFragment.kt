@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import monakhova.bookmark.manager.R
+import monakhova.bookmark.manager.mvi.SettingsViewModel
 
 /**
  * Created by monakhova on 27.04.2020.

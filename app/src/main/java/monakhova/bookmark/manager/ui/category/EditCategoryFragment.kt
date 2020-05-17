@@ -5,7 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import kotlinx.android.synthetic.main.fragment_category.*
+import androidx.navigation.fragment.navArgs
+import kotlinx.android.synthetic.main.fragment_edit_category.*
 import monakhova.bookmark.manager.R
 import monakhova.bookmark.manager.ui.ReadWriteFragment
 
@@ -17,13 +18,15 @@ import monakhova.bookmark.manager.ui.ReadWriteFragment
 class EditCategoryFragment: ReadWriteFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_category, container, false)
+        return inflater.inflate(R.layout.fragment_edit_category, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         category_chip.setOnClickListener {
-            findNavController().navigate(R.id.action_edit_category_to_choose_category)
+            val categoryId = navArgs<EditCategoryFragmentArgs>().value.categoryId
+            val chooseCategoryAction = EditCategoryFragmentDirections.actionEditCategoryToChooseCategory(categoryId)
+            findNavController().navigate(chooseCategoryAction)
         }
     }
 

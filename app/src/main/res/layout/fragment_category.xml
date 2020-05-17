@@ -1,34 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/side_padding"
-    tools:context=".ui.bookmark.AddBookmarkFragment">
+    tools:context=".ui.category.CategoryFragment">
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/header_edit"
-        style="@style/EditTextStyle.Header"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/category_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_header"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/hint_header"
-        tools:visibility="visible"/>
+        tools:listitem="@layout/item_bookmark" />
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/category_chip"
-        style="@style/ChipStyle.Empty"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/content_margin"
-        android:text="@string/category_none"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header_edit"
-        tools:visibility="visible"/>
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/ic_add"
+        app:tint="@android:color/white"
+        app:elevation="0dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

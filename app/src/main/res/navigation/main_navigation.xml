@@ -3,94 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_categories">
+    app:startDestination="@id/navigation_edit_bookmark">
 
     <fragment
-        android:id="@+id/navigation_categories"
-        android:name="monakhova.bookmark.manager.ui.categories.CategoriesFragment"
+        android:id="@+id/navigation_category"
+        android:name="monakhova.bookmark.manager.ui.category.CategoryFragment"
         android:label="@string/title_categories"
-        tools:layout="@layout/fragment_categories">
-
-        <action
-            android:id="@+id/action_categories_to_view_category"
-            app:destination="@id/navigation_view_category" />
-
-    </fragment>
-
-    <fragment
-        android:id="@+id/navigation_add_bookmark"
-        android:name="monakhova.bookmark.manager.ui.bookmark.AddBookmarkFragment"
-        android:label="@string/title_add_bookmark"
-        tools:layout="@layout/fragment_bookmark">
-
-        <action
-            android:id="@+id/action_add_bookmark_to_choose_category"
-            app:destination="@id/navigation_choose_category" />
-
-        <action
-            android:id="@+id/action_add_bookmark_to_view_category"
-            app:destination="@id/navigation_view_category" />
-
-    </fragment>
-
-    <fragment
-        android:id="@+id/navigation_settings"
-        android:name="monakhova.bookmark.manager.ui.settings.SettingsFragment"
-        android:label="@string/title_settings"
-        tools:layout="@layout/fragment_settings" />
-
-    <fragment
-        android:id="@+id/navigation_view_category"
-        android:name="monakhova.bookmark.manager.ui.categories.SubcategoryFragment"
-        android:label="@string/title_categories"
-        tools:layout="@layout/fragment_categories">
-
-        <action
-            android:id="@+id/action_view_category_to_edit_category"
-            app:destination="@id/navigation_edit_category" />
-
-    </fragment>
-
-    <action
-        android:id="@+id/action_open_bottom_sheet_menu"
-        app:destination="@id/navigation_add_category_or_bookmark" />
-
-    <dialog android:id="@+id/navigation_add_category_or_bookmark"
-        android:name="monakhova.bookmark.manager.ui.categories.BottomSheetFragment"
-        android:label="@string/menu_add"
-        tools:layout="@layout/bottom_sheet">
-
-        <action
-            android:id="@+id/action_categories_to_add_category"
-            app:destination="@id/navigation_add_category" />
-
-        <action
-            android:id="@+id/action_categories_to_add_bookmark"
-            app:destination="@id/navigation_add_bookmark" />
-
-    </dialog>
-
-    <fragment
-        android:id="@+id/navigation_add_category"
-        android:name="monakhova.bookmark.manager.ui.category.AddCategoryFragment"
-        android:label="@string/title_add_category"
-        tools:layout="@layout/fragment_category" >
-
-        <action
-            android:id="@+id/action_add_category_to_choose_category"
-            app:destination="@id/navigation_choose_category" />
-
-    </fragment>
-
-    <fragment
-        android:id="@+id/navigation_edit_category"
-        android:name="monakhova.bookmark.manager.ui.category.EditCategoryFragment"
-        android:label="@string/title_edit_category"
         tools:layout="@layout/fragment_category">
 
+        <argument
+            android:name="categoryId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+
         <action
-            android:id="@+id/action_edit_category_to_choose_category"
-            app:destination="@id/navigation_choose_category" />
+            android:id="@+id/action_open_bottom_sheet_menu"
+            app:destination="@id/navigation_add_category_or_bookmark" />
+
+        <action
+            android:id="@+id/action_category_to_subcategory"
+            app:destination="@id/navigation_category" />
+
+        <action
+            android:id="@+id/action_category_to_edit_category"
+            app:destination="@id/navigation_edit_category" />
 
     </fragment>
 
@@ -100,21 +36,78 @@
         android:label="@string/title_edit_bookmark"
         tools:layout="@layout/fragment_bookmark">
 
+        <argument
+            android:name="bookmarkId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+
         <action
             android:id="@+id/action_edit_bookmark_to_choose_category"
+            app:destination="@id/navigation_choose_category" />
+
+        <action
+            android:id="@+id/action_edit_bookmark_to_category"
+            app:destination="@id/navigation_category" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="monakhova.bookmark.manager.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <dialog android:id="@+id/navigation_add_category_or_bookmark"
+        android:name="monakhova.bookmark.manager.ui.BottomSheetFragment"
+        android:label="@string/menu_add"
+        tools:layout="@layout/bottom_sheet">
+
+        <argument
+            android:name="parentCategoryId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+
+        <action
+            android:id="@+id/action_category_to_add_category"
+            app:destination="@id/navigation_edit_category" />
+
+        <action
+            android:id="@+id/action_category_to_add_bookmark"
+            app:destination="@id/navigation_edit_bookmark" />
+
+    </dialog>
+
+    <fragment
+        android:id="@+id/navigation_edit_category"
+        android:name="monakhova.bookmark.manager.ui.category.EditCategoryFragment"
+        android:label="@string/title_edit_category"
+        tools:layout="@layout/fragment_edit_category">
+
+        <argument
+            android:name="categoryId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+
+        <action
+            android:id="@+id/action_edit_category_to_choose_category"
             app:destination="@id/navigation_choose_category" />
 
     </fragment>
 
     <fragment
         android:id="@+id/navigation_choose_category"
-        android:name="monakhova.bookmark.manager.ui.categories.ChooseCategoryFragment"
+        android:name="monakhova.bookmark.manager.ui.category.ChooseCategoryFragment"
         android:label="@string/title_choose_category"
-        tools:layout="@layout/fragment_categories">
+        tools:layout="@layout/fragment_category">
+
+        <argument
+            android:name="parentCategoryId"
+            android:defaultValue="0"
+            app:argType="integer"/>
 
         <action
             android:id="@+id/action_choose_category_to_add_category"
-            app:destination="@id/navigation_add_category" />
+            app:destination="@id/navigation_edit_category" />
 
     </fragment>
 

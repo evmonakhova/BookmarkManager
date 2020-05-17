@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_categories"
+        android:id="@+id/navigation_category"
         android:icon="@drawable/ic_categories"
         android:title="@string/title_categories" />
 
     <item
-        android:id="@+id/navigation_add_bookmark"
+        android:id="@+id/navigation_edit_bookmark"
         android:icon="@drawable/ic_add"
         android:title="@string/title_add_bookmark" />
 

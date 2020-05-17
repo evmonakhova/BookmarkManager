@@ -16,10 +16,10 @@ class MainActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.nav_host_fragment)
         val appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.navigation_categories, R.id.navigation_add_bookmark, R.id.navigation_settings)
+            setOf(R.id.navigation_category, R.id.navigation_edit_bookmark, R.id.navigation_settings)
         )
         toolbar?.setupWithNavController(navController, appBarConfiguration)
         nav_view.setupWithNavController(navController)
-        nav_view.selectedItemId = R.id.navigation_add_bookmark
     }
+
 }
