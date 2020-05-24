@@ -1,13 +1,13 @@
-package monakhova.bookmark.manager.mvi
+package monakhova.bookmark.manager.mvi.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class CategoryViewModel : ViewModel() {
+class SettingsViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is categories Fragment"
+        value = "This is settings Fragment"
     }
     val text: LiveData<String> = _text
 }

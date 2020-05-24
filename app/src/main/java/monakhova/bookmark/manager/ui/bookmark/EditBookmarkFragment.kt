@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_bookmark.*
 import monakhova.bookmark.manager.R
-import monakhova.bookmark.manager.mvi.BookmarkViewModel
+import monakhova.bookmark.manager.mvi.viewmodel.BookmarkViewModel
 import monakhova.bookmark.manager.ui.ReadWriteFragment
 
 /**

@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.fragment_category.*
 import monakhova.bookmark.manager.R
+import monakhova.bookmark.manager.mvi.viewmodel.ChooseCategoryViewModel
 import monakhova.bookmark.manager.ui.ReadWriteFragment
 
 /**
@@ -17,7 +19,10 @@ import monakhova.bookmark.manager.ui.ReadWriteFragment
  */
 class ChooseCategoryFragment: ReadWriteFragment() {
 
+    private lateinit var chooseCategoryViewModel: ChooseCategoryViewModel
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        chooseCategoryViewModel = ViewModelProviders.of(this).get(ChooseCategoryViewModel::class.java)
         return inflater.inflate(R.layout.fragment_category, container, false)
     }
 

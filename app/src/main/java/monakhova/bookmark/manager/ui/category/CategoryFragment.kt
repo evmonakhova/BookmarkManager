@@ -8,7 +8,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.fragment_category.*
 import monakhova.bookmark.manager.R
-import monakhova.bookmark.manager.mvi.CategoryViewModel
+import monakhova.bookmark.manager.mvi.viewmodel.CategoryViewModel
 
 /**
  * Created by monakhova on 27.04.2020.
