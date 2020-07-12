@@ -1,13 +1,15 @@
 package monakhova.bookmark.manager
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import monakhova.bookmark.manager.injection.ActivityScope
 
-class MainActivity : AppCompatActivity() {
+@ActivityScope
+class MainActivity: DaggerAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

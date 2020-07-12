@@ -4,13 +4,18 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import dagger.android.support.DaggerDialogFragment
 import monakhova.bookmark.manager.R
+import javax.inject.Inject
 
 /**
  * Created by monakhova on 12.05.2020.
  */
-abstract class ReadWriteFragment: Fragment() {
+abstract class ReadWriteFragment: DaggerDialogFragment() {
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     abstract fun onDoneActionSelected()
 

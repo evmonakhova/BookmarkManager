@@ -8,7 +8,7 @@ import android.text.util.Linkify
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProviders
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_bookmark.*
 import monakhova.bookmark.manager.R
@@ -22,10 +22,9 @@ import monakhova.bookmark.manager.ui.ReadWriteFragment
  */
 class EditBookmarkFragment: ReadWriteFragment() {
 
-    private lateinit var bookmarkViewModel: BookmarkViewModel
+    private val bookmarkViewModel: BookmarkViewModel by viewModels { viewModelFactory }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        bookmarkViewModel = ViewModelProviders.of(this).get(BookmarkViewModel::class.java)
         return inflater.inflate(R.layout.fragment_bookmark, container, false)
     }
 

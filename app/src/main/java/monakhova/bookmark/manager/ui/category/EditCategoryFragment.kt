@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProviders
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.fragment_edit_category.*
@@ -19,10 +19,9 @@ import monakhova.bookmark.manager.ui.ReadWriteFragment
  */
 class EditCategoryFragment: ReadWriteFragment() {
 
-    private lateinit var changeCategoryViewModel: ChangeCategoryViewModel
+    private val changeCategoryViewModel: ChangeCategoryViewModel by viewModels { viewModelFactory }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        changeCategoryViewModel = ViewModelProviders.of(this).get(ChangeCategoryViewModel::class.java)
         return inflater.inflate(R.layout.fragment_edit_category, container, false)
     }
 
