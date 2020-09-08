@@ -7,9 +7,9 @@ import dagger.Module
 import dagger.multibindings.IntoMap
 import monakhova.bookmark.manager.injection.ViewModelFactory
 import monakhova.bookmark.manager.injection.ViewModelKey
-import monakhova.bookmark.manager.mvi.viewmodel.BookmarkViewModel
-import monakhova.bookmark.manager.mvi.viewmodel.CategoryViewModel
-import monakhova.bookmark.manager.mvi.viewmodel.SettingsViewModel
+import monakhova.bookmark.manager.presentation.mvi.viewmodel.BookmarkViewModel
+import monakhova.bookmark.manager.presentation.mvi.viewmodel.CategoryViewModel
+import monakhova.bookmark.manager.presentation.mvi.viewmodel.SettingsViewModel
 
 /**
  * Created by monakhova on 17.05.2020.

@@ -2,7 +2,7 @@ package monakhova.bookmark.manager.injection.module
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import monakhova.bookmark.manager.MainActivity
+import monakhova.bookmark.manager.presentation.MainActivity
 import monakhova.bookmark.manager.injection.ActivityScope
 
 /**

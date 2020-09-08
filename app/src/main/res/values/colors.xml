@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#27ae87</color>
-    <color name="primary_dark">#1b7a6b</color>
-    <color name="primary_light">#cefff7</color>
-    <color name="accent">#9cfff0</color>
+    <color name="jungle_green">#27ae87</color>
+    <color name="deep_sea">#1b7a6b</color>
+    <color name="light_cian">#cefff7</color>
+    <color name="pale_turquoise">#9cfff0</color>
+
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#656565</color>
     <color name="icons">#FFFFFF</color>

@@ -3,11 +3,8 @@ package monakhova.bookmark.manager.injection
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
-import monakhova.bookmark.manager.BookmarkApplication
-import monakhova.bookmark.manager.injection.module.BookmarkApplicationModule
-import monakhova.bookmark.manager.injection.module.MainActivityModule
-import monakhova.bookmark.manager.injection.module.RepositoryModule
-import monakhova.bookmark.manager.injection.module.ViewModelModule
+import monakhova.bookmark.manager.injection.module.*
+import monakhova.bookmark.manager.presentation.BookmarkApplication
 import javax.inject.Singleton
 
 /**
@@ -19,7 +16,8 @@ import javax.inject.Singleton
     BookmarkApplicationModule::class,
     MainActivityModule::class,
     ViewModelModule::class,
-    RepositoryModule::class
+    RepositoryModule::class,
+    RoomDbModule::class
 ])
 interface BookmarkApplicationComponent: AndroidInjector<BookmarkApplication> {
 

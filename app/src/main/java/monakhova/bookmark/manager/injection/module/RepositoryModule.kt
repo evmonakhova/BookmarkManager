@@ -2,10 +2,10 @@ package monakhova.bookmark.manager.injection.module
 
 import dagger.Binds
 import dagger.Module
-import monakhova.bookmark.manager.repository.BookmarkRepository
-import monakhova.bookmark.manager.repository.CategoryRepository
-import monakhova.bookmark.manager.repository.IBookmarkRepository
-import monakhova.bookmark.manager.repository.ICategoryRepository
+import monakhova.bookmark.manager.data.repository.BookmarkRepository
+import monakhova.bookmark.manager.data.repository.CategoryRepository
+import monakhova.bookmark.manager.domain.repository.IBookmarkRepository
+import monakhova.bookmark.manager.domain.repository.ICategoryRepository
 import javax.inject.Singleton
 
 /**

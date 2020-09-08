@@ -3,11 +3,11 @@ package monakhova.bookmark.manager.injection.module
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import monakhova.bookmark.manager.injection.FragmentScope
-import monakhova.bookmark.manager.ui.bookmark.EditBookmarkFragment
-import monakhova.bookmark.manager.ui.category.CategoryFragment
-import monakhova.bookmark.manager.ui.category.ChooseCategoryFragment
-import monakhova.bookmark.manager.ui.category.EditCategoryFragment
-import monakhova.bookmark.manager.ui.settings.SettingsFragment
+import monakhova.bookmark.manager.presentation.ui.bookmark.EditBookmarkFragment
+import monakhova.bookmark.manager.presentation.ui.category.CategoryFragment
+import monakhova.bookmark.manager.presentation.ui.category.ChooseCategoryFragment
+import monakhova.bookmark.manager.presentation.ui.category.EditCategoryFragment
+import monakhova.bookmark.manager.presentation.ui.settings.SettingsFragment
 
 /**
  * Created by monakhova on 25.05.2020.
