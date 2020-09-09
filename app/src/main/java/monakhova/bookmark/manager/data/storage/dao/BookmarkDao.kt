@@ -9,18 +9,15 @@ import monakhova.bookmark.manager.data.storage.entities.BookmarkEntity
  */
 @Dao
 interface BookmarkDao {
-    @Query( "SELECT * FROM $TABLE_BOOKMARK")
-    fun fetchBookmarks(): List<BookmarkEntity>
-
     @Query( "SELECT * FROM $TABLE_BOOKMARK WHERE bookmarkId = :id")
-    fun fetchBookmark(id: Int): List<BookmarkEntity>
+    suspend fun fetchBookmark(id: Int): BookmarkEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertBookmark(bookmarkEntity: BookmarkEntity)
+    suspend fun insertBookmark(bookmarkEntity: BookmarkEntity)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    fun updateBookmark(bookmarkEntity: BookmarkEntity)
+    suspend fun updateBookmark(bookmarkEntity: BookmarkEntity)
 
     @Delete
-    fun deleteBookmark(bookmarkEntity: BookmarkEntity)
+    suspend fun deleteBookmark(bookmarkEntity: BookmarkEntity)
 }

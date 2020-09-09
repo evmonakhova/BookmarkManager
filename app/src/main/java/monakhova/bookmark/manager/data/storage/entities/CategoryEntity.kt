@@ -9,7 +9,8 @@ import monakhova.bookmark.manager.data.storage.TABLE_CATEGORY
  */
 @Entity(tableName = TABLE_CATEGORY)
 data class CategoryEntity(
-    @PrimaryKey val categoryId: Int,
+    @PrimaryKey(autoGenerate = true)
+    val categoryId: Int = 0,
     val parentCategoryId: Int,
     val title: String
 )
