@@ -9,9 +9,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_bookmark.*
 import monakhova.bookmark.manager.R
+import monakhova.bookmark.manager.domain.models.DEFAULT_CATEGORY_ID
 import monakhova.bookmark.manager.presentation.mvi.viewmodel.BookmarkViewModel
 import monakhova.bookmark.manager.presentation.ui.ReadWriteFragment
 
@@ -25,6 +27,7 @@ class EditBookmarkFragment: ReadWriteFragment() {
     private val bookmarkViewModel: BookmarkViewModel by viewModels { viewModelFactory }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        bindViewModel()
         return inflater.inflate(R.layout.fragment_bookmark, container, false)
     }
 
@@ -48,6 +51,17 @@ class EditBookmarkFragment: ReadWriteFragment() {
     }
 
     override fun onDoneActionSelected() {
-        findNavController().navigate(R.id.action_edit_bookmark_to_category)
+        bookmarkViewModel.addBookmark(
+            header_edit.text.toString(),
+            description_edit.text.toString(),
+            link_edit.text.toString(),
+            DEFAULT_CATEGORY_ID
+        )
+    }
+
+    private fun bindViewModel() {
+        bookmarkViewModel.bookmarkAdded.observe(this@EditBookmarkFragment, Observer {
+            findNavController().navigate(R.id.action_edit_bookmark_to_category)
+        })
     }
 }

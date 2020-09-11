@@ -1,14 +1,17 @@
 package monakhova.bookmark.manager.presentation.ui.category
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import dagger.android.support.DaggerDialogFragment
 import kotlinx.android.synthetic.main.fragment_category.*
 import monakhova.bookmark.manager.R
+import monakhova.bookmark.manager.domain.models.DEFAULT_CATEGORY_ID
 import monakhova.bookmark.manager.injection.FragmentScope
 import monakhova.bookmark.manager.presentation.mvi.viewmodel.CategoryViewModel
 import javax.inject.Inject
@@ -21,10 +24,6 @@ import javax.inject.Inject
 @FragmentScope
 class CategoryFragment : DaggerDialogFragment() {
 
-    companion object {
-        private const val DEFAULT_CATEGORY_ID = 0
-    }
-
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
@@ -35,6 +34,7 @@ class CategoryFragment : DaggerDialogFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        bindViewModel()
         return inflater.inflate(R.layout.fragment_category, container, false)
     }
 
@@ -49,6 +49,7 @@ class CategoryFragment : DaggerDialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(categoryId != DEFAULT_CATEGORY_ID)
+        categoryViewModel.getCategory()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -65,4 +66,12 @@ class CategoryFragment : DaggerDialogFragment() {
             super.onOptionsItemSelected(item)
         }
     }
+
+    private fun bindViewModel() {
+        categoryViewModel.categoryData.observe(this, Observer {
+            Log.d(getLogTag(), "Category loaded: $it")
+        })
+    }
+
+    private fun getLogTag() = javaClass.simpleName
 }
