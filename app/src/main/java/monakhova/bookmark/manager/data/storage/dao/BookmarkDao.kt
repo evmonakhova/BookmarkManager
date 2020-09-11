@@ -1,7 +1,8 @@
 package monakhova.bookmark.manager.data.storage.dao
 
 import androidx.room.*
-import monakhova.bookmark.manager.data.storage.TABLE_BOOKMARK
+import monakhova.bookmark.manager.data.storage.entities.BOOKMARK_ID
+import monakhova.bookmark.manager.data.storage.entities.TABLE_BOOKMARK
 import monakhova.bookmark.manager.data.storage.entities.BookmarkEntity
 
 /**
@@ -9,7 +10,7 @@ import monakhova.bookmark.manager.data.storage.entities.BookmarkEntity
  */
 @Dao
 interface BookmarkDao {
-    @Query( "SELECT * FROM $TABLE_BOOKMARK WHERE bookmarkId = :id")
+    @Query( "SELECT * FROM $TABLE_BOOKMARK WHERE $BOOKMARK_ID = :id")
     suspend fun fetchBookmark(id: Int): BookmarkEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

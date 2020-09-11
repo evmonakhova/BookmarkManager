@@ -8,10 +8,10 @@ import androidx.room.Relation
  */
 data class CategoryDetails(
     @Embedded val category: CategoryEntity,
-    @Relation(parentColumn = "categoryId", entityColumn = "parentCategoryId")
-    val parentCategory: CategoryEntity,
-    @Relation(parentColumn = "categoryId", entityColumn = "bookmarkCategoryId")
-    val bookmarks: List<BookmarkEntity>,
-    @Relation(parentColumn = "parentCategoryId", entityColumn = "categoryId")
-    val subcategories: List<CategoryEntity>
+    @Relation(parentColumn = CATEGORY_ID, entityColumn = PARENT_CATEGORY_ID)
+    val parentCategory: CategoryEntity?,
+    @Relation(parentColumn = CATEGORY_ID, entityColumn = BOOKMARK_CATEGORY_ID)
+    val bookmarks: List<BookmarkEntity>?,
+    @Relation(parentColumn = PARENT_CATEGORY_ID, entityColumn = CATEGORY_ID)
+    val subcategories: List<CategoryEntity>?
 )

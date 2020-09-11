@@ -8,8 +8,8 @@ import monakhova.bookmark.manager.domain.models.IBookmark
  * Interface that represents a Repository for getting [IBookmark] related data.
  */
 interface IBookmarkRepository {
-    suspend fun addBookmark(bookmark: IBookmark)
     suspend fun getBookmark(id: Int): IBookmark
+    suspend fun addBookmark(header: String, description: String, url: String, categoryId: Int)
     suspend fun updateBookmark(bookmark: IBookmark)
     suspend fun deleteBookmark(bookmark: IBookmark)
 }

@@ -1,7 +1,7 @@
 package monakhova.bookmark.manager.domain.converters
 
-import monakhova.bookmark.manager.data.storage.entities.CategoryEntity
 import monakhova.bookmark.manager.data.storage.entities.CategoryDetails
+import monakhova.bookmark.manager.data.storage.entities.CategoryEntity
 import monakhova.bookmark.manager.domain.models.ICategory
 import monakhova.bookmark.manager.presentation.mvi.model.Category
 
@@ -11,7 +11,7 @@ import monakhova.bookmark.manager.presentation.mvi.model.Category
 
 fun ICategory.toEntity() = CategoryEntity(
     categoryId = id,
-    parentCategoryId = parentCategoryId ?: 0,
+    parentCategoryId = parentCategoryId,
     title = title
 )
 
@@ -27,6 +27,6 @@ fun CategoryDetails.toModel() = Category(
     id = category.categoryId,
     parentCategoryId = category.parentCategoryId,
     title = category.title,
-    subcategories = subcategories.map { it.toModel() },
-    bookmarks = bookmarks.map { it.toModel() }
+    subcategories = subcategories?.map { it.toModel() },
+    bookmarks = bookmarks?.map { it.toModel() }
 )

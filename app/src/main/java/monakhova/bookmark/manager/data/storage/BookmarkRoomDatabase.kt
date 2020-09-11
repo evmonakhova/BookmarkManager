@@ -10,12 +10,13 @@ import monakhova.bookmark.manager.data.storage.entities.CategoryEntity
 /**
  * Created by monakhova on 06.09.2020.
  */
-
 const val BOOKMARK_DATABASE = "Bookmarks.db"
-const val TABLE_BOOKMARK = "TableBookmark"
-const val TABLE_CATEGORY = "TableCategory"
 
-@Database(entities = [BookmarkEntity::class, CategoryEntity::class], version = 1)
+@Database(
+    entities = [BookmarkEntity::class, CategoryEntity::class],
+    version = 1,
+    exportSchema = false
+)
 abstract class BookmarkRoomDatabase: RoomDatabase() {
     abstract fun bookmarkDao(): BookmarkDao
     abstract fun categoryDao(): CategoryDao

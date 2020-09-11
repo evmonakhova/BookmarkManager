@@ -1,7 +1,9 @@
 package monakhova.bookmark.manager.data.storage.dao
 
 import androidx.room.*
-import monakhova.bookmark.manager.data.storage.TABLE_CATEGORY
+import monakhova.bookmark.manager.data.storage.entities.CATEGORY_ID
+import monakhova.bookmark.manager.data.storage.entities.PARENT_CATEGORY_ID
+import monakhova.bookmark.manager.data.storage.entities.TABLE_CATEGORY
 import monakhova.bookmark.manager.data.storage.entities.CategoryEntity
 import monakhova.bookmark.manager.data.storage.entities.CategoryDetails
 
@@ -10,14 +12,14 @@ import monakhova.bookmark.manager.data.storage.entities.CategoryDetails
  */
 @Dao
 interface CategoryDao {
-    @Query( "SELECT * FROM $TABLE_CATEGORY WHERE categoryId = :id")
+    @Query( "SELECT * FROM $TABLE_CATEGORY WHERE $CATEGORY_ID = :id")
     suspend fun fetchCategory(id: Int): CategoryEntity
 
     @Transaction
-    @Query( "SELECT * FROM $TABLE_CATEGORY WHERE categoryId = :id")
+    @Query( "SELECT * FROM $TABLE_CATEGORY WHERE $CATEGORY_ID = :id")
     suspend fun fetchCategoryDetails(id: Int): CategoryDetails
 
-    @Query( "SELECT * FROM $TABLE_CATEGORY WHERE parentCategoryId = :categoryId")
+    @Query( "SELECT * FROM $TABLE_CATEGORY WHERE $PARENT_CATEGORY_ID = :categoryId")
     suspend fun fetchSubcategories(categoryId: Int): List<CategoryEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
