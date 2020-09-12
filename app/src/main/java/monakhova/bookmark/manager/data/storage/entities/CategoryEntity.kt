@@ -28,7 +28,7 @@ const val CATEGORY_TITLE = "category_title"
 )
 data class CategoryEntity(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = CATEGORY_ID) val categoryId: Long = DEFAULT_CATEGORY_ID.toLong(),
+    @ColumnInfo(name = CATEGORY_ID) val categoryId: Int = DEFAULT_CATEGORY_ID,
     @ColumnInfo(name = PARENT_CATEGORY_ID) val parentCategoryId: Int?,
     @ColumnInfo(name = CATEGORY_TITLE) val title: String
 )

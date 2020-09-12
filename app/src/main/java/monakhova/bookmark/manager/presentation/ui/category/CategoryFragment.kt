@@ -14,6 +14,7 @@ import monakhova.bookmark.manager.R
 import monakhova.bookmark.manager.domain.models.DEFAULT_CATEGORY_ID
 import monakhova.bookmark.manager.injection.FragmentScope
 import monakhova.bookmark.manager.presentation.mvi.viewmodel.CategoryViewModel
+import monakhova.bookmark.manager.presentation.ui.category.adapter.CategoryAdapter
 import javax.inject.Inject
 
 /**
@@ -29,9 +30,9 @@ class CategoryFragment : DaggerDialogFragment() {
 
     private val categoryViewModel: CategoryViewModel by viewModels { viewModelFactory }
 
-    private val categoryId by lazy {
-        navArgs<CategoryFragmentArgs>().value.categoryId
-    }
+    private val categoryId by lazy { navArgs<CategoryFragmentArgs>().value.categoryId }
+
+    private lateinit var categoryAdapter: CategoryAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         bindViewModel()
@@ -40,6 +41,12 @@ class CategoryFragment : DaggerDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        categoryAdapter = CategoryAdapter({
+            Log.d(getLogTag(), "Category ${it.id} clicked.")
+        }, {
+            Log.d(getLogTag(), "Bookmark ${it.id} clicked.")
+        })
+        category_list.adapter = categoryAdapter
         fab_add.setOnClickListener {
             val openBottomSheetAction = CategoryFragmentDirections.actionOpenBottomSheetMenu(categoryId)
             findNavController().navigate(openBottomSheetAction)
@@ -70,6 +77,7 @@ class CategoryFragment : DaggerDialogFragment() {
     private fun bindViewModel() {
         categoryViewModel.categoryData.observe(this, Observer {
             Log.d(getLogTag(), "Category loaded: $it")
+            categoryAdapter.updateData(it)
         })
     }
 

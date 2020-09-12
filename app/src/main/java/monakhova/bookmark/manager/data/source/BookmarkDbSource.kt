@@ -4,7 +4,7 @@ import monakhova.bookmark.manager.data.storage.dao.BookmarkDao
 import monakhova.bookmark.manager.data.storage.entities.BookmarkEntity
 import monakhova.bookmark.manager.domain.converters.toEntity
 import monakhova.bookmark.manager.domain.converters.toModel
-import monakhova.bookmark.manager.domain.models.IBookmark
+import monakhova.bookmark.manager.domain.models.Bookmark
 import monakhova.bookmark.manager.domain.source.IBookmarkDbSource
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -19,14 +19,19 @@ class BookmarkDbSource @Inject constructor(
     override suspend fun getBookmark(id: Int) =
         bookmarkDao.fetchBookmark(id).toModel()
 
-    override suspend fun addBookmark(header: String, description: String, url: String, categoryId: Int) =
+    override suspend fun addBookmark(
+        categoryId: Int,
+        header: String,
+        description: String,
+        url: String
+    ) =
         bookmarkDao.insertBookmark(
             BookmarkEntity(header = header, description = description, url = url, bookmarkCategoryId = categoryId)
         )
 
-    override suspend fun updateBookmark(bookmark: IBookmark) =
+    override suspend fun updateBookmark(bookmark: Bookmark) =
         bookmarkDao.updateBookmark(bookmark.toEntity())
 
-    override suspend fun deleteBookmark(bookmark: IBookmark)=
+    override suspend fun deleteBookmark(bookmark: Bookmark)=
         bookmarkDao.deleteBookmark(bookmark.toEntity())
 }

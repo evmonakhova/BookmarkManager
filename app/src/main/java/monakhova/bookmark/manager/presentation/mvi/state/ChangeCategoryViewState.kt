@@ -1,6 +1,6 @@
 package monakhova.bookmark.manager.presentation.mvi.state
 
-import monakhova.bookmark.manager.presentation.mvi.model.Category
+import monakhova.bookmark.manager.domain.models.Category
 
 /**
  * Created by monakhova on 18.05.2020.

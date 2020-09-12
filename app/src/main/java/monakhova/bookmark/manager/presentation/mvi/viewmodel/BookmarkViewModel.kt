@@ -18,7 +18,7 @@ class BookmarkViewModel @Inject constructor(
     fun addBookmark(header: String, description: String, url: String, categoryId: Int) {
         viewModelScope.launch {
             try {
-                bookmarkRepository.addBookmark(header, description, url, categoryId)
+                bookmarkRepository.addBookmark(categoryId, header, description, url)
             } finally {
                 _bookmarkAdded.postValue(true)
             }

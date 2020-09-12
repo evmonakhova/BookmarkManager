@@ -1,14 +1,13 @@
 package monakhova.bookmark.manager.domain.converters
 
 import monakhova.bookmark.manager.data.storage.entities.BookmarkEntity
-import monakhova.bookmark.manager.domain.models.IBookmark
-import monakhova.bookmark.manager.presentation.mvi.model.Bookmark
+import monakhova.bookmark.manager.domain.models.Bookmark
 
 /**
  * Created by monakhova on 09.09.2020.
  */
 
-fun IBookmark.toEntity() = BookmarkEntity(
+fun Bookmark.toEntity() = BookmarkEntity(
     bookmarkId = id,
     bookmarkCategoryId = categoryId,
     header = header,

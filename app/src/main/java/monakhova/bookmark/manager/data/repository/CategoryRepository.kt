@@ -1,6 +1,6 @@
 package monakhova.bookmark.manager.data.repository
 
-import monakhova.bookmark.manager.domain.models.ICategory
+import monakhova.bookmark.manager.domain.models.Category
 import monakhova.bookmark.manager.domain.repository.ICategoryRepository
 import monakhova.bookmark.manager.domain.source.ICategoryDbSource
 import javax.inject.Inject
@@ -16,6 +16,6 @@ class CategoryRepository @Inject constructor(
     override suspend fun getCategory(id: Int) = categoryDbSource.getCategory(id)
     override suspend fun getCategoryDetails(id: Int) = categoryDbSource.getCategoryDetails(id)
     override suspend fun getSubcategories(categoryId: Int) = categoryDbSource.getSubcategories(categoryId)
-    override suspend fun addCategory(category: ICategory) = categoryDbSource.addCategory(category)
-    override suspend fun deleteCategory(category: ICategory) = categoryDbSource.deleteCategory(category)
+    override suspend fun addCategory(category: Category) = categoryDbSource.addCategory(category)
+    override suspend fun deleteCategory(category: Category) = categoryDbSource.deleteCategory(category)
 }

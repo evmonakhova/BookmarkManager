@@ -1,14 +1,14 @@
 package monakhova.bookmark.manager.domain.repository
 
-import monakhova.bookmark.manager.domain.models.ICategory
+import monakhova.bookmark.manager.domain.models.Category
 
 /**
  * Created by monakhova on 18.05.2020.
  */
 interface ICategoryRepository {
-    suspend fun getCategory(id: Int): ICategory
-    suspend fun getCategoryDetails(id: Int): ICategory
-    suspend fun getSubcategories(categoryId: Int): List<ICategory>
-    suspend fun addCategory(category: ICategory)
-    suspend fun deleteCategory(category: ICategory)
+    suspend fun getCategory(id: Int): Category
+    suspend fun getCategoryDetails(id: Int): Category
+    suspend fun getSubcategories(categoryId: Int): List<Category>
+    suspend fun addCategory(category: Category)
+    suspend fun deleteCategory(category: Category)
 }

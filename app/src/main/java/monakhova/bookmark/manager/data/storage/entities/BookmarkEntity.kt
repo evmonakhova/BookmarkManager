@@ -31,7 +31,7 @@ const val BOOKMARK_URL = "bookmark_url"
 )
 data class BookmarkEntity(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = BOOKMARK_ID) val bookmarkId: Long = 0,
+    @ColumnInfo(name = BOOKMARK_ID) val bookmarkId: Int = 0,
     @ColumnInfo(name = BOOKMARK_CATEGORY_ID) val bookmarkCategoryId: Int = DEFAULT_CATEGORY_ID,
     @ColumnInfo(name = BOOKMARK_HEADER) val header: String,
     @ColumnInfo(name = BOOKMARK_DESCRIPTION) val description: String,
