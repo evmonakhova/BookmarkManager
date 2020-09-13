@@ -9,8 +9,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clipToPadding="false"
         android:padding="@dimen/side_padding"
-        tools:context=".presentation.ui.bookmark.EditBookmarkFragment">
+        tools:context=".presentation.ui.bookmark.BookmarkFragment">
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/header_edit"
@@ -66,12 +67,13 @@
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/fab_add_from_clipboard"
-            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
             android:text="@string/fab_add_link"
             android:textColor="@android:color/white"
+            app:elevation="1dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>

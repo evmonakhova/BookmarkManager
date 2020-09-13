@@ -3,7 +3,7 @@ package monakhova.bookmark.manager.domain.models
 /**
  * Created by monakhova on 13.09.2020.
  */
-const val DEFAULT_CATEGORY_ID = 1
+const val DEFAULT_CATEGORY_ID = 0
 
 sealed class CategoryItem
 

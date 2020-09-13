@@ -21,7 +21,7 @@ class MainActivity: DaggerAppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_category,
-                R.id.navigation_edit_bookmark,
+                R.id.navigation_add_bookmark,
                 R.id.navigation_settings
             )
         )

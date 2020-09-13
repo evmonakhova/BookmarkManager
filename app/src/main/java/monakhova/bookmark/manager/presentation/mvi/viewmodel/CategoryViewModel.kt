@@ -17,9 +17,9 @@ class CategoryViewModel @Inject constructor(
     private val _categoryData = MutableLiveData<Category>()
     val categoryData: LiveData<Category> = _categoryData
 
-    fun getCategory() {
+    fun getCategory(categoryId: Int) {
         viewModelScope.launch {
-            _categoryData.value = categoryRepository.getCategoryDetails(DEFAULT_CATEGORY_ID)
+            _categoryData.value = categoryRepository.getCategoryDetails(categoryId)
         }
     }
 }

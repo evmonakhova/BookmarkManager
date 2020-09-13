@@ -43,8 +43,12 @@ class CategoryFragment : DaggerDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         categoryAdapter = CategoryAdapter({
             Log.d(getLogTag(), "Category ${it.id} clicked.")
+            val openSubcategoryAction = CategoryFragmentDirections.actionCategoryToSubcategory(it.id)
+            findNavController().navigate(openSubcategoryAction)
         }, {
             Log.d(getLogTag(), "Bookmark ${it.id} clicked.")
+            val openBookmarkAction = CategoryFragmentDirections.actionCategoryToEditBookmark(it.id)
+            findNavController().navigate(openBookmarkAction)
         })
         category_list.adapter = categoryAdapter
         fab_add.setOnClickListener {
@@ -56,7 +60,7 @@ class CategoryFragment : DaggerDialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(categoryId != DEFAULT_CATEGORY_ID)
-        categoryViewModel.getCategory()
+        categoryViewModel.getCategory(categoryId)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/navigation_edit_bookmark">
+    app:startDestination="@id/navigation_add_bookmark">
 
     <fragment
         android:id="@+id/navigation_category"
@@ -28,6 +28,10 @@
             android:id="@+id/action_category_to_edit_category"
             app:destination="@id/navigation_edit_category" />
 
+        <action
+            android:id="@+id/action_category_to_edit_bookmark"
+            app:destination="@id/navigation_add_bookmark" />
+
     </fragment>
 
     <fragment
@@ -47,6 +51,27 @@
 
         <action
             android:id="@+id/action_edit_bookmark_to_category"
+            app:destination="@id/navigation_category" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_add_bookmark"
+        android:name="monakhova.bookmark.manager.presentation.ui.bookmark.AddBookmarkFragment"
+        android:label="@string/title_add_bookmark"
+        tools:layout="@layout/fragment_bookmark">
+
+        <argument
+            android:name="categoryId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+
+        <action
+            android:id="@+id/action_add_bookmark_to_choose_category"
+            app:destination="@id/navigation_choose_category" />
+
+        <action
+            android:id="@+id/action_add_bookmark_to_category"
             app:destination="@id/navigation_category" />
 
     </fragment>
@@ -73,7 +98,7 @@
 
         <action
             android:id="@+id/action_category_to_add_bookmark"
-            app:destination="@id/navigation_edit_bookmark" />
+            app:destination="@id/navigation_add_bookmark" />
 
     </dialog>
 
