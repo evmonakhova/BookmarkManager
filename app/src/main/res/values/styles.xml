@@ -6,7 +6,6 @@
         <item name="colorOnSurface">@color/secondary_text</item>
         <item name="colorPrimary">@color/jungle_green</item>
         <item name="colorPrimaryDark">@color/deep_sea</item>
-<!--        <item name="colorSecondary">@color/monte_carlo</item>-->
         <item name="toolbarStyle">@style/ToolbarStyle</item>
     </style>
 
@@ -32,28 +31,37 @@
     <!--  Text edit  -->
     <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
         <item name="android:background">@drawable/rounded_corners_shape</item>
-        <item name="android:padding">@dimen/content_margin</item>
+        <item name="android:paddingStart">@dimen/content_margin</item>
+        <item name="android:paddingEnd">@dimen/content_margin</item>
+        <item name="android:paddingTop">@dimen/content_padding</item>
+        <item name="android:paddingBottom">@dimen/content_padding</item>
         <item name="android:textAlignment">textStart</item>
+        <item name="android:textColor">@color/primary_text</item>
         <item name="android:textColorLink">?colorAccent</item>
     </style>
 
     <style name="EditTextStyle.Header">
+        <item name="android:imeOptions">actionNext</item>
         <item name="android:singleLine">true</item>
+        <item name="android:gravity">start|center_vertical</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">@dimen/header_edit_size</item>
     </style>
 
     <style name="EditTextStyle.Description">
+        <item name="android:imeOptions">actionNext</item>
         <item name="android:gravity">start|top</item>
-        <item name="android:lines">6</item>
-        <item name="android:maxLines">6</item>
+        <item name="android:lines">4</item>
+        <item name="android:maxLines">4</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">@dimen/description_edit_size</item>
     </style>
 
     <style name="EditTextStyle.Link">
-        <item name="android:autoLink">web</item>
-        <item name="android:maxLines">2</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:inputType">textUri</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:singleLine">true</item>
         <item name="android:textColorLink">?colorPrimary</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">@dimen/link_edit_size</item>
