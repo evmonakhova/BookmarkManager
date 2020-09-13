@@ -1,42 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/content_padding"
-    android:padding="@dimen/side_padding"
-    android:background="@drawable/rounded_corners_shape">
+    android:layout_marginBottom="@dimen/content_padding"
+    app:cardElevation="1dp"
+    app:cardCornerRadius="@dimen/corner_radius">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/header_text"
-        style="@style/TextStyle.Header"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="MVI Architecture for Android Tutorial: Getting Started."/>
+        android:paddingStart="@dimen/side_padding"
+        android:paddingEnd="@dimen/side_padding"
+        android:paddingTop="@dimen/content_padding"
+        android:paddingBottom="@dimen/content_padding">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/description_text"
-        style="@style/TextStyle.Description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header_text"
-        tools:text="Learn about the MVI (Model-View-Intent) architecture pattern and prepare to apply it to your next Android app. Developers can choose from several architecture patterns to create scalable and maintainable apps like MVC, MVP and MVVM. All of them use the imperative programming developers know and love. In this tutorial, you’ll learn about a very different architecture pattern. MVI uses reactive programming to build Android apps."/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/header_text"
+            style="@style/TextStyle.Header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="MVI Architecture for Android Tutorial: Getting Started."/>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/link_text"
-        style="@style/TextStyle.Link"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/description_text"
-        tools:text="https://www.raywenderlich.com/817602-mvi-architecture-for-android-tutorial-getting-started"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/description_text"
+            style="@style/TextStyle.Description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header_text"
+            tools:text="Learn about the MVI (Model-View-Intent) architecture pattern and prepare to apply it to your next Android app. Developers can choose from several architecture patterns to create scalable and maintainable apps like MVC, MVP and MVVM. All of them use the imperative programming developers know and love. In this tutorial, you’ll learn about a very different architecture pattern. MVI uses reactive programming to build Android apps."/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/link_text"
+            style="@style/TextStyle.Link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description_text"
+            tools:text="https://www.raywenderlich.com/817602-mvi-architecture-for-android-tutorial-getting-started"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

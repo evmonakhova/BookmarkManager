@@ -7,8 +7,9 @@
 
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#656565</color>
+    <color name="hint_text">#909090</color>
     <color name="icons">#FFFFFF</color>
     <color name="divider">#DDDDDD</color>
     <color name="ripple">#DDDDDD</color>
-    <color name="background">#FBFBFB</color>
+    <color name="background">#F9F9F9</color>
 </resources>

@@ -17,7 +17,12 @@ class BookmarkViewHolder(
         containerView.apply {
             setOnClickListener { clickListener.invoke(bookmark) }
             header_text.text = bookmark.header
-            description_text.text = bookmark.description
+            if (bookmark.description.isEmpty()) {
+                description_text.visibility = View.GONE
+            } else {
+                description_text.visibility = View.VISIBLE
+                description_text.text = bookmark.description
+            }
             link_text.text = bookmark.url
         }
     }
