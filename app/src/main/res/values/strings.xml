@@ -20,4 +20,7 @@
     <string name="settings_instant_view">Open links in browser</string>
     <string name="settings_export">Export bookmarks</string>
     <string name="settings_rate_app">Rate app</string>
+    <string name="error_text">Some error occurred.</string>
+    <string name="retry_button_text">Try again</string>
+    <string name="empty_url_message">Link can not be empty.</string>
 </resources>

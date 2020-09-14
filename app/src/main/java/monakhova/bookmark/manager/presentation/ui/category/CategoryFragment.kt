@@ -10,11 +10,17 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import dagger.android.support.DaggerDialogFragment
 import kotlinx.android.synthetic.main.fragment_category.*
+import kotlinx.android.synthetic.main.fragment_category.progress_bar
+import kotlinx.android.synthetic.main.view_error.*
 import monakhova.bookmark.manager.R
 import monakhova.bookmark.manager.domain.models.DEFAULT_CATEGORY_ID
 import monakhova.bookmark.manager.injection.FragmentScope
+import monakhova.bookmark.manager.presentation.mvi.state.CategoryIntent
+import monakhova.bookmark.manager.presentation.mvi.state.CategoryState
 import monakhova.bookmark.manager.presentation.mvi.viewmodel.CategoryViewModel
 import monakhova.bookmark.manager.presentation.ui.category.adapter.CategoryAdapter
+import monakhova.bookmark.manager.presentation.ui.hide
+import monakhova.bookmark.manager.presentation.ui.show
 import javax.inject.Inject
 
 /**
@@ -60,7 +66,7 @@ class CategoryFragment : DaggerDialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(categoryId != DEFAULT_CATEGORY_ID)
-        categoryViewModel.getCategory(categoryId)
+        categoryViewModel.onIntent(CategoryIntent.LoadCategory(categoryId))
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -79,10 +85,31 @@ class CategoryFragment : DaggerDialogFragment() {
     }
 
     private fun bindViewModel() {
-        categoryViewModel.categoryData.observe(this, Observer {
-            Log.d(getLogTag(), "Category loaded: $it")
-            categoryAdapter.updateData(it)
-        })
+        categoryViewModel.state.observe(this, Observer { render(it) })
+    }
+
+    private fun render(state: CategoryState) {
+        when (state) {
+            is CategoryState.Loading -> {
+                progress_bar.show()
+                view_error.hide()
+                category_list.hide()
+                fab_add.visibility = View.GONE
+            }
+            is CategoryState.Success -> {
+                progress_bar.hide()
+                view_error.hide()
+                category_list.show()
+                fab_add.visibility = View.VISIBLE
+                categoryAdapter.updateData(state.category)
+            }
+            is CategoryState.Error -> {
+                progress_bar.hide()
+                view_error.show()
+                category_list.hide()
+                fab_add.visibility = View.GONE
+            }
+        }
     }
 
     private fun getLogTag() = javaClass.simpleName

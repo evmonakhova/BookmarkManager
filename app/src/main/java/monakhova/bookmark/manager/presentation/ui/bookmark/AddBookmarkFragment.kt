@@ -4,13 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.fragment_bookmark.*
+import kotlinx.android.synthetic.main.view_error.*
 import monakhova.bookmark.manager.R
+import monakhova.bookmark.manager.presentation.mvi.state.AddBookmarkIntent
+import monakhova.bookmark.manager.presentation.mvi.state.AddBookmarkState
 import monakhova.bookmark.manager.presentation.mvi.viewmodel.BookmarkViewModel
+import monakhova.bookmark.manager.presentation.ui.hide
+import monakhova.bookmark.manager.presentation.ui.show
 
 /**
  * Created by monakhova on 13.09.2020.
@@ -31,20 +37,44 @@ class AddBookmarkFragment: BookmarkFragment() {
         category_chip.setOnClickListener {
             findNavController().navigate(R.id.action_add_bookmark_to_choose_category)
         }
+        button_retry.setOnClickListener { onAddBookmarkIntent() }
     }
 
-    override fun onDoneActionSelected() {
-        bookmarkViewModel.addBookmark(
-            header_edit.text.toString(),
-            description_edit.text.toString(),
-            link_edit.text.toString(),
-            categoryId
-        )
-    }
+    override fun onDoneActionSelected() = onAddBookmarkIntent()
 
     private fun bindViewModel() {
-        bookmarkViewModel.bookmarkAdded.observe(this, Observer {
-            findNavController().navigate(R.id.action_add_bookmark_to_category)
-        })
+        bookmarkViewModel.state.observe(this, Observer { render(it) })
+    }
+
+    private fun onAddBookmarkIntent() {
+        if (link_edit.text.isNullOrBlank()) {
+            Toast.makeText(context, R.string.empty_url_message, Toast.LENGTH_SHORT).show()
+            return
+        }
+        val addBookmark = AddBookmarkIntent.AddBookmark(
+            categoryId,
+            header_edit.text.toString(),
+            description_edit.text.toString(),
+            link_edit.text.toString()
+        )
+        bookmarkViewModel.onIntent(addBookmark)
+    }
+
+    private fun render(state: AddBookmarkState) {
+        when (state) {
+            is AddBookmarkState.Loading -> {
+                progress_bar.show()
+                view_error.hide()
+                container.hide()
+            }
+            is AddBookmarkState.Success -> {
+                findNavController().navigate(R.id.action_add_bookmark_to_category)
+            }
+            is AddBookmarkState.Error -> {
+                progress_bar.hide()
+                view_error.show()
+                container.hide()
+            }
+        }
     }
 }
