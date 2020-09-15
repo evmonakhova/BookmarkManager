@@ -22,11 +22,10 @@ fun CategoryEntity.toModel() = Category(
     subcategories = listOf()
 )
 
-fun CategoryDetails.toModel() =
-    Category(
-        id = category.categoryId,
-        parentCategoryId = category.parentCategoryId,
-        title = category.title,
-        bookmarks = bookmarks?.map { it.toModel() },
-        subcategories = subcategories?.map { it.toModel() }
-    )
+fun CategoryDetails.toModel() = Category(
+    id = categoryWithBookmarks.category.categoryId,
+    parentCategoryId = categoryWithBookmarks.category.parentCategoryId,
+    title = categoryWithBookmarks.category.title,
+    bookmarks = categoryWithBookmarks.bookmarks?.map { it.toModel() },
+    subcategories = subcategories?.map { it.toModel() }
+)

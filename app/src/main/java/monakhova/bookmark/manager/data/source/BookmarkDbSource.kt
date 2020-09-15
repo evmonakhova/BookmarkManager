@@ -24,10 +24,9 @@ class BookmarkDbSource @Inject constructor(
         header: String,
         description: String,
         url: String
-    ) =
-        bookmarkDao.insertBookmark(
-            BookmarkEntity(header = header, description = description, url = url, bookmarkCategoryId = categoryId)
-        )
+    ) = bookmarkDao.insertBookmark(
+        BookmarkEntity(header = header, description = description, url = url, bookmarkCategoryId = categoryId)
+    )
 
     override suspend fun updateBookmark(bookmark: Bookmark) =
         bookmarkDao.updateBookmark(bookmark.toEntity())

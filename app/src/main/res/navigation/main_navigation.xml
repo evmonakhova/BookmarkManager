@@ -94,7 +94,7 @@
 
         <action
             android:id="@+id/action_category_to_add_category"
-            app:destination="@id/navigation_edit_category" />
+            app:destination="@id/navigation_add_category" />
 
         <action
             android:id="@+id/action_category_to_add_bookmark"
@@ -120,6 +120,23 @@
     </fragment>
 
     <fragment
+        android:id="@+id/navigation_add_category"
+        android:name="monakhova.bookmark.manager.presentation.ui.category.AddCategoryFragment"
+        android:label="@string/title_add_category"
+        tools:layout="@layout/fragment_edit_category">
+
+        <argument
+            android:name="parentCategoryId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+
+        <action
+            android:id="@+id/action_add_category_to_choose_category"
+            app:destination="@id/navigation_choose_category" />
+
+    </fragment>
+
+    <fragment
         android:id="@+id/navigation_choose_category"
         android:name="monakhova.bookmark.manager.presentation.ui.category.ChooseCategoryFragment"
         android:label="@string/title_choose_category"
@@ -132,7 +149,7 @@
 
         <action
             android:id="@+id/action_choose_category_to_add_category"
-            app:destination="@id/navigation_edit_category" />
+            app:destination="@id/navigation_add_category" />
 
     </fragment>
 

@@ -9,6 +9,7 @@ import monakhova.bookmark.manager.injection.ViewModelFactory
 import monakhova.bookmark.manager.injection.ViewModelKey
 import monakhova.bookmark.manager.presentation.mvi.viewmodel.BookmarkViewModel
 import monakhova.bookmark.manager.presentation.mvi.viewmodel.CategoryViewModel
+import monakhova.bookmark.manager.presentation.mvi.viewmodel.ChangeCategoryViewModel
 import monakhova.bookmark.manager.presentation.mvi.viewmodel.SettingsViewModel
 
 /**
@@ -25,6 +26,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(CategoryViewModel::class)
     abstract fun categoryViewModel(viewModel: CategoryViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ChangeCategoryViewModel::class)
+    abstract fun changeCategoryViewModel(viewModel: ChangeCategoryViewModel): ViewModel
 
     @Binds
     @IntoMap

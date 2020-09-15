@@ -13,10 +13,11 @@ import kotlinx.android.synthetic.main.fragment_category.*
 import kotlinx.android.synthetic.main.fragment_category.progress_bar
 import kotlinx.android.synthetic.main.view_error.*
 import monakhova.bookmark.manager.R
+import monakhova.bookmark.manager.domain.models.Category
 import monakhova.bookmark.manager.domain.models.DEFAULT_CATEGORY_ID
 import monakhova.bookmark.manager.injection.FragmentScope
 import monakhova.bookmark.manager.presentation.mvi.state.CategoryIntent
-import monakhova.bookmark.manager.presentation.mvi.state.CategoryState
+import monakhova.bookmark.manager.presentation.mvi.state.LoadingState
 import monakhova.bookmark.manager.presentation.mvi.viewmodel.CategoryViewModel
 import monakhova.bookmark.manager.presentation.ui.category.adapter.CategoryAdapter
 import monakhova.bookmark.manager.presentation.ui.hide
@@ -88,22 +89,22 @@ class CategoryFragment : DaggerDialogFragment() {
         categoryViewModel.state.observe(this, Observer { render(it) })
     }
 
-    private fun render(state: CategoryState) {
+    private fun render(state: LoadingState) {
         when (state) {
-            is CategoryState.Loading -> {
+            is LoadingState.Loading -> {
                 progress_bar.show()
                 view_error.hide()
                 category_list.hide()
                 fab_add.visibility = View.GONE
             }
-            is CategoryState.Success -> {
+            is LoadingState.Success<*> -> {
                 progress_bar.hide()
                 view_error.hide()
                 category_list.show()
                 fab_add.visibility = View.VISIBLE
-                categoryAdapter.updateData(state.category)
+                categoryAdapter.updateData(state.data as Category)
             }
-            is CategoryState.Error -> {
+            is LoadingState.Error -> {
                 progress_bar.hide()
                 view_error.show()
                 category_list.hide()

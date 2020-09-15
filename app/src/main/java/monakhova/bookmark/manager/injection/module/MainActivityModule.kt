@@ -5,6 +5,7 @@ import dagger.android.ContributesAndroidInjector
 import monakhova.bookmark.manager.injection.FragmentScope
 import monakhova.bookmark.manager.presentation.ui.bookmark.AddBookmarkFragment
 import monakhova.bookmark.manager.presentation.ui.bookmark.EditBookmarkFragment
+import monakhova.bookmark.manager.presentation.ui.category.AddCategoryFragment
 import monakhova.bookmark.manager.presentation.ui.category.CategoryFragment
 import monakhova.bookmark.manager.presentation.ui.category.ChooseCategoryFragment
 import monakhova.bookmark.manager.presentation.ui.category.EditCategoryFragment
@@ -31,6 +32,11 @@ abstract class MainActivityModule {
     @FragmentScope
     @ContributesAndroidInjector()
     abstract fun chooseCategoryFragment(): ChooseCategoryFragment
+
+
+    @FragmentScope
+    @ContributesAndroidInjector()
+    abstract fun addCategoryFragment(): AddCategoryFragment
 
     @FragmentScope
     @ContributesAndroidInjector()

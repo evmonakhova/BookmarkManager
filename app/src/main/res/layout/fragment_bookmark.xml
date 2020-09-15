@@ -29,7 +29,7 @@
             tools:context=".presentation.ui.bookmark.BookmarkFragment">
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/header_edit"
+                android:id="@+id/edit_category_title"
                 style="@style/EditTextStyle.Header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
                 android:hint="@string/hint_description"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/header_edit"
+                app:layout_constraintTop_toBottomOf="@id/edit_category_title"
                 tools:text="@string/hint_description"
                 tools:visibility="visible"/>
 

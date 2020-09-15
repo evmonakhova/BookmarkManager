@@ -12,8 +12,8 @@ import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.fragment_bookmark.*
 import kotlinx.android.synthetic.main.view_error.*
 import monakhova.bookmark.manager.R
-import monakhova.bookmark.manager.presentation.mvi.state.AddBookmarkIntent
-import monakhova.bookmark.manager.presentation.mvi.state.AddBookmarkState
+import monakhova.bookmark.manager.presentation.mvi.state.BookmarkIntent
+import monakhova.bookmark.manager.presentation.mvi.state.LoadingState
 import monakhova.bookmark.manager.presentation.mvi.viewmodel.BookmarkViewModel
 import monakhova.bookmark.manager.presentation.ui.hide
 import monakhova.bookmark.manager.presentation.ui.show
@@ -51,26 +51,30 @@ class AddBookmarkFragment: BookmarkFragment() {
             Toast.makeText(context, R.string.empty_url_message, Toast.LENGTH_SHORT).show()
             return
         }
-        val addBookmark = AddBookmarkIntent.AddBookmark(
+        val addBookmark = BookmarkIntent.AddBookmark(
             categoryId,
-            header_edit.text.toString(),
+            edit_category_title.text.toString(),
             description_edit.text.toString(),
             link_edit.text.toString()
         )
         bookmarkViewModel.onIntent(addBookmark)
     }
 
-    private fun render(state: AddBookmarkState) {
+    private fun render(state: LoadingState) {
         when (state) {
-            is AddBookmarkState.Loading -> {
+            is LoadingState.Loading -> {
                 progress_bar.show()
                 view_error.hide()
                 container.hide()
             }
-            is AddBookmarkState.Success -> {
-                findNavController().navigate(R.id.action_add_bookmark_to_category)
+            is LoadingState.Success<*> -> {
+                findNavController().apply {
+                    previousBackStackEntry?.let {
+                        popBackStack()
+                    } ?: navigate(R.id.action_add_bookmark_to_category)
+                }
             }
-            is AddBookmarkState.Error -> {
+            is LoadingState.Error -> {
                 progress_bar.hide()
                 view_error.show()
                 container.hide()

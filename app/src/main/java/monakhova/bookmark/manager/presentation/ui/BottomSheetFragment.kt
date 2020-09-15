@@ -19,6 +19,8 @@ import monakhova.bookmark.manager.R
  */
 class BottomSheetFragment: BottomSheetDialogFragment() {
 
+    val parentCategoryId by lazy {  navArgs<BottomSheetFragmentArgs>().value.parentCategoryId }
+
     @Nullable
     override fun onCreateView(inflater: LayoutInflater, @Nullable container: ViewGroup?, @Nullable savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.bottom_sheet, container, false)
@@ -26,7 +28,6 @@ class BottomSheetFragment: BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val parentCategoryId = navArgs<BottomSheetFragmentArgs>().value.parentCategoryId
         add_category.setOnClickListener {
             val addCategoryAction = BottomSheetFragmentDirections.actionCategoryToAddCategory(parentCategoryId)
             findNavController().navigate(addCategoryAction)

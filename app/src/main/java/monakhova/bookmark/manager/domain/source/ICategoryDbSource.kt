@@ -7,8 +7,8 @@ import monakhova.bookmark.manager.domain.models.Category
  */
 interface ICategoryDbSource {
     suspend fun getCategory(id: Int): Category
-    suspend fun getCategoryDetails(id: Int): Category
+    suspend fun getCategoryDetails(categoryId: Int): Category
     suspend fun getSubcategories(categoryId: Int): List<Category>
-    suspend fun addCategory(category: Category)
+    suspend fun addCategory(parentCategoryId: Int, title: String)
     suspend fun deleteCategory(category: Category)
 }

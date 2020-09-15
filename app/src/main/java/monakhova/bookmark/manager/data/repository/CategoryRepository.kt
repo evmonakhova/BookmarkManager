@@ -15,7 +15,9 @@ class CategoryRepository @Inject constructor(
 ): ICategoryRepository {
     override suspend fun getCategory(id: Int) = categoryDbSource.getCategory(id)
     override suspend fun getCategoryDetails(id: Int) = categoryDbSource.getCategoryDetails(id)
-    override suspend fun getSubcategories(categoryId: Int) = categoryDbSource.getSubcategories(categoryId)
-    override suspend fun addCategory(category: Category) = categoryDbSource.addCategory(category)
+    override suspend fun getSubcategories(categoryId: Int) =
+        categoryDbSource.getSubcategories(categoryId)
+    override suspend fun addCategory(parentCategoryId: Int, title: String) =
+        categoryDbSource.addCategory(parentCategoryId, title)
     override suspend fun deleteCategory(category: Category) = categoryDbSource.deleteCategory(category)
 }

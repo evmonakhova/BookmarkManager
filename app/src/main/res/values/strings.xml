@@ -23,4 +23,5 @@
     <string name="error_text">Some error occurred.</string>
     <string name="retry_button_text">Try again</string>
     <string name="empty_url_message">Link can not be empty.</string>
+    <string name="empty_category_title_message">Category title can not be empty.</string>
 </resources>

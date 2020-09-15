@@ -16,7 +16,6 @@ class BookmarkRepository @Inject constructor(
     override suspend fun addBookmark(categoryId: Int, header: String, description: String, url: String) {
         bookmarkDbSource.addBookmark(categoryId, header, description, url)
     }
-
     override suspend fun getBookmark(id: Int) = bookmarkDbSource.getBookmark(id)
     override suspend fun updateBookmark(bookmark: Bookmark) = bookmarkDbSource.updateBookmark(bookmark)
     override suspend fun deleteBookmark(bookmark: Bookmark) = bookmarkDbSource.deleteBookmark(bookmark)

@@ -1,30 +1,33 @@
 package monakhova.bookmark.manager.data.storage.dao
 
 import androidx.room.*
-import monakhova.bookmark.manager.data.storage.entities.CATEGORY_ID
-import monakhova.bookmark.manager.data.storage.entities.PARENT_CATEGORY_ID
-import monakhova.bookmark.manager.data.storage.entities.TABLE_CATEGORY
-import monakhova.bookmark.manager.data.storage.entities.CategoryEntity
-import monakhova.bookmark.manager.data.storage.entities.CategoryDetails
+import monakhova.bookmark.manager.data.storage.entities.*
 
 /**
  * Created by monakhova on 06.09.2020.
  */
 @Dao
-interface CategoryDao {
-    @Query( "SELECT * FROM $TABLE_CATEGORY WHERE $CATEGORY_ID = :id")
-    suspend fun fetchCategory(id: Int): CategoryEntity
+abstract class CategoryDao {
+    @Query( "SELECT * FROM $TABLE_CATEGORY WHERE $CATEGORY_ID = :categoryId")
+    abstract suspend fun fetchCategory(categoryId: Int): CategoryEntity
 
     @Transaction
-    @Query( "SELECT * FROM $TABLE_CATEGORY WHERE $CATEGORY_ID = :id")
-    suspend fun fetchCategoryDetails(id: Int): CategoryDetails
+    @Query( "SELECT * FROM $TABLE_CATEGORY WHERE $CATEGORY_ID = :categoryId")
+    abstract suspend fun fetchCategoryWithBookmarks(categoryId: Int): CategoryWithBookmarks
 
     @Query( "SELECT * FROM $TABLE_CATEGORY WHERE $PARENT_CATEGORY_ID = :categoryId")
-    suspend fun fetchSubcategories(categoryId: Int): List<CategoryEntity>
+    abstract suspend fun fetchSubcategories(categoryId: Int): List<CategoryEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertCategory(categoryEntity: CategoryEntity)
+    abstract suspend fun insertCategory(categoryEntity: CategoryEntity)
 
     @Delete
-    suspend fun deleteCategory(categoryEntity: CategoryEntity)
+    abstract suspend fun deleteCategory(categoryEntity: CategoryEntity)
+
+    @Transaction
+    open suspend fun fetchCategoryDetails(categoryId: Int): CategoryDetails {
+        val categoryWithBookmarks = fetchCategoryWithBookmarks(categoryId)
+        val subcategories = fetchSubcategories(categoryId)
+        return CategoryDetails(categoryWithBookmarks, subcategories)
+    }
 }
